@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useMemo } from "react"
-import { BookOpen, MagnifyingGlass, ChartBar, X, Globe } from "@phosphor-icons/react"
+import React, { useState, useMemo } from "react"
+import { Book, MagnifyingGlass, ChartBar, X, Globe } from "@phosphor-icons/react"
 import { WikiDataManager } from "./WikiDataManager"
 import { useWikiConfig } from "./WikiProvider"
 import type { WikiProps, WikiEntry, WikiLang, SearchEvent } from "./types"
 import { translations } from "./translations"
-import "./styles.css"
+import { wikiStyles } from "./styles"
 
 export const WikiComponent: React.FC<WikiProps> = ({
   onSearch,
@@ -18,8 +18,23 @@ export const WikiComponent: React.FC<WikiProps> = ({
   const [results, setResults] = useState<WikiEntry[]>([])
   const [activeTab, setActiveTab] = useState("search")
   const [showResults, setShowResults] = useState(false)
+  const [stylesInjected, setStylesInjected] = useState(false)
   
   const dataManager = useMemo(() => WikiDataManager.getInstance(), [])
+  
+  // Inject styles
+  React.useEffect(() => {
+    if (!stylesInjected && typeof document !== 'undefined') {
+      const styleId = 'eu4-wiki-styles'
+      if (!document.getElementById(styleId)) {
+        const styleElement = document.createElement('style')
+        styleElement.id = styleId
+        styleElement.textContent = wikiStyles
+        document.head.appendChild(styleElement)
+      }
+      setStylesInjected(true)
+    }
+  }, [stylesInjected])
   const t = translations[currentLang] || translations.fr
 
   // Analytics functions
@@ -108,7 +123,7 @@ export const WikiComponent: React.FC<WikiProps> = ({
     <div className={`eu4-wiki-container ${className}`} style={style}>
       <div className="eu4-wiki-header">
         <h1 className="eu4-wiki-title">
-          <BookOpen size={32} weight="duotone" />
+          <Book size={32} weight="duotone" />
           {t.title}
         </h1>
         <div className="eu4-wiki-lang-selector">
@@ -150,7 +165,7 @@ export const WikiComponent: React.FC<WikiProps> = ({
             className={`eu4-wiki-tab ${activeTab === "glossary" ? "active" : ""}`}
             onClick={() => setActiveTab("glossary")}
           >
-            <BookOpen size={18} weight="duotone" />
+            <Book size={18} weight="duotone" />
             {t.glossary}
           </button>
         )}
@@ -195,7 +210,7 @@ export const WikiComponent: React.FC<WikiProps> = ({
                   {results.map((entry, index) => (
                     <div key={index} className="eu4-wiki-card">
                       <h3 className="eu4-wiki-card-title">
-                        <BookOpen size={16} weight="duotone" />
+                        <Book size={16} weight="duotone" />
                         {entry.title}
                       </h3>
                       <div className="eu4-wiki-card-body">{entry.body}</div>
@@ -259,7 +274,7 @@ export const WikiComponent: React.FC<WikiProps> = ({
               {allEntries.map((entry, index) => (
                 <div key={index} className="eu4-wiki-card">
                   <h3 className="eu4-wiki-card-title">
-                    <BookOpen size={16} weight="duotone" />
+                    <Book size={16} weight="duotone" />
                     {entry.title}
                   </h3>
                   <div className="eu4-wiki-card-body">{entry.body}</div>
