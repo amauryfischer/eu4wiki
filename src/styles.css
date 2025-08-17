@@ -1,0 +1,327 @@
+/* EU4 Wiki Standalone Styles */
+.eu4-wiki-container {
+	--wiki-primary: #ffd700;
+	--wiki-secondary: #ff8c00;
+	--wiki-bg: #0a0a0f;
+	--wiki-card-bg: rgba(20, 20, 30, 0.8);
+	--wiki-border: rgba(255, 215, 0, 0.2);
+	--wiki-hover: rgba(255, 215, 0, 0.3);
+	--wiki-text: #ffffff;
+	--wiki-text-dim: #999999;
+
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	background: linear-gradient(135deg, var(--wiki-bg) 0%, #1a1a2e 100%);
+	color: var(--wiki-text);
+	min-height: 100vh;
+}
+
+.eu4-wiki-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 2rem;
+}
+
+.eu4-wiki-title {
+	font-size: 2rem;
+	font-weight: 700;
+	background: linear-gradient(
+		135deg,
+		var(--wiki-primary) 0%,
+		var(--wiki-secondary) 100%
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.eu4-wiki-lang-selector {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.eu4-wiki-select {
+	background: var(--wiki-card-bg);
+	border: 1px solid var(--wiki-border);
+	color: var(--wiki-text);
+	padding: 0.5rem 1rem;
+	border-radius: 8px;
+	cursor: pointer;
+}
+
+.eu4-wiki-tabs {
+	display: flex;
+	gap: 1rem;
+	margin-bottom: 2rem;
+	border-bottom: 1px solid var(--wiki-border);
+	padding-bottom: 0;
+}
+
+.eu4-wiki-tab {
+	background: transparent;
+	border: none;
+	color: var(--wiki-text-dim);
+	padding: 0.75rem 1.5rem;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	position: relative;
+	transition: all 0.3s ease;
+	border-bottom: 2px solid transparent;
+	margin-bottom: -1px;
+}
+
+.eu4-wiki-tab:hover {
+	color: var(--wiki-primary);
+}
+
+.eu4-wiki-tab.active {
+	color: var(--wiki-primary);
+	border-bottom-color: var(--wiki-primary);
+}
+
+.eu4-wiki-badge {
+	background: var(--wiki-secondary);
+	color: white;
+	font-size: 0.75rem;
+	padding: 0.125rem 0.375rem;
+	border-radius: 12px;
+	margin-left: 0.25rem;
+}
+
+.eu4-wiki-search-section {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.eu4-wiki-search-form {
+	display: flex;
+	gap: 1rem;
+	margin-bottom: 2rem;
+}
+
+.eu4-wiki-search-input-wrapper {
+	flex: 1;
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.eu4-wiki-search-icon {
+	position: absolute;
+	left: 1rem;
+	color: var(--wiki-text-dim);
+}
+
+.eu4-wiki-search-input {
+	width: 100%;
+	padding: 0.75rem 3rem;
+	background: var(--wiki-card-bg);
+	border: 1px solid var(--wiki-border);
+	border-radius: 8px;
+	color: var(--wiki-text);
+	font-size: 1rem;
+}
+
+.eu4-wiki-search-input:focus {
+	outline: none;
+	border-color: var(--wiki-primary);
+}
+
+.eu4-wiki-clear-btn {
+	position: absolute;
+	right: 1rem;
+	background: transparent;
+	border: none;
+	color: var(--wiki-text-dim);
+	cursor: pointer;
+	padding: 0.25rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.eu4-wiki-search-btn {
+	padding: 0.75rem 2rem;
+	background: linear-gradient(
+		135deg,
+		var(--wiki-primary) 0%,
+		var(--wiki-secondary) 100%
+	);
+	border: none;
+	border-radius: 8px;
+	color: #000;
+	font-weight: 600;
+	cursor: pointer;
+	transition: transform 0.2s ease;
+}
+
+.eu4-wiki-search-btn:hover {
+	transform: translateY(-2px);
+}
+
+.eu4-wiki-results-title {
+	font-size: 1.25rem;
+	color: var(--wiki-primary);
+	margin-bottom: 1.5rem;
+}
+
+.eu4-wiki-results-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+	gap: 1.5rem;
+}
+
+.eu4-wiki-card {
+	background: var(--wiki-card-bg);
+	border: 1px solid var(--wiki-border);
+	border-radius: 12px;
+	padding: 1.5rem;
+	transition: all 0.3s ease;
+}
+
+.eu4-wiki-card:hover {
+	transform: translateY(-2px);
+	border-color: var(--wiki-hover);
+	box-shadow: 0 8px 24px rgba(255, 215, 0, 0.1);
+}
+
+.eu4-wiki-card-title {
+	color: var(--wiki-primary);
+	font-size: 1.1rem;
+	font-weight: 600;
+	margin-bottom: 0.75rem;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.eu4-wiki-card-body {
+	color: #ccc;
+	font-size: 0.95rem;
+	line-height: 1.6;
+	white-space: pre-wrap;
+}
+
+.eu4-wiki-card-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin-top: 1rem;
+}
+
+.eu4-wiki-tag {
+	background: rgba(255, 215, 0, 0.1);
+	color: var(--wiki-primary);
+	padding: 0.25rem 0.75rem;
+	border-radius: 16px;
+	font-size: 0.85rem;
+}
+
+.eu4-wiki-hint {
+	text-align: center;
+	color: var(--wiki-text-dim);
+	margin-top: 3rem;
+	font-size: 1.1rem;
+}
+
+.eu4-wiki-stats-section {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.eu4-wiki-stats-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 1.5rem;
+}
+
+.eu4-wiki-stat-card {
+	background: var(--wiki-card-bg);
+	border: 1px solid rgba(100, 200, 255, 0.2);
+	border-radius: 12px;
+	padding: 1.5rem;
+}
+
+.eu4-wiki-stat-value {
+	font-size: 2.5rem;
+	font-weight: 700;
+	color: #64c8ff;
+}
+
+.eu4-wiki-stat-label {
+	color: var(--wiki-text-dim);
+	font-size: 0.9rem;
+	margin-top: 0.5rem;
+}
+
+.eu4-wiki-stat-lang-list {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.eu4-wiki-stat-lang-list div {
+	display: flex;
+	justify-content: space-between;
+}
+
+.eu4-wiki-stat-lang-list span {
+	color: #64c8ff;
+	font-weight: 600;
+}
+
+.eu4-wiki-stat-top-list {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.eu4-wiki-stat-top-list div {
+	display: flex;
+	justify-content: space-between;
+	font-size: 0.9rem;
+}
+
+.eu4-wiki-stat-top-list span {
+	color: #64c8ff;
+	font-weight: 600;
+}
+
+.eu4-wiki-no-data {
+	color: var(--wiki-text-dim);
+	font-size: 0.9rem;
+	text-align: center;
+	padding: 1rem;
+}
+
+.eu4-wiki-glossary-section {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+/* Scrollbar styling */
+.eu4-wiki-container ::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+.eu4-wiki-container ::-webkit-scrollbar-track {
+	background: rgba(255, 255, 255, 0.05);
+	border-radius: 4px;
+}
+
+.eu4-wiki-container ::-webkit-scrollbar-thumb {
+	background: var(--wiki-primary);
+	border-radius: 4px;
+	opacity: 0.7;
+}
+
+.eu4-wiki-container ::-webkit-scrollbar-thumb:hover {
+	opacity: 1;
+}

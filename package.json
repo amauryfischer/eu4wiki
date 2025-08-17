@@ -1,0 +1,48 @@
+{
+  "name": "@eu4/wiki",
+  "version": "1.0.0",
+  "description": "Wiki standalone package for Empire Universe 4",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "echo \"No tests configured\"",
+    "prepare": "npm run build"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "dependencies": {
+    "@phosphor-icons/react": "^2.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "rollup": "^4.0.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "tslib": "^2.6.0",
+    "typescript": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/eu4-wiki.git"
+  },
+  "keywords": [
+    "wiki",
+    "empire-universe-4",
+    "game",
+    "documentation"
+  ],
+  "author": "EU4 Wiki Team",
+  "license": "MIT"
+}
