@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EU4 Wiki - Test Standalone</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  
+  <!-- Pour tester le package builé -->
+  <script type="module">
+    // Importer le module depuis dist
+    // Note: En production, vous devrez adapter le chemin
+    import Wiki from './dist/index.esm.js';
+    
+    const { createElement } = React;
+    const { createRoot } = ReactDOM;
+    
+    const config = {
+      defaultLanguage: 'fr',
+      enableAnalytics: true,
+      enableStats: true,
+      enableGlossary: true
+    };
+    
+    const root = createRoot(document.getElementById('root'));
+    root.render(createElement(Wiki, { config }));
+  </script>
+</body>
+</html>
